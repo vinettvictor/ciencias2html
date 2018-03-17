@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+
+<title>Formulario</title>
+
+<script type="text/javascript">
+
+
+
+function aceptar() {
+	
+	var nombre  = document.getElementById("nombre").value;
+	var expregNombre = /^[A-Z]{1}[a-z]*$/;
+
+	var rut     = document.getElementById("rut").value;
+	var expregRut = /^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-(k|[0-9]{1})$/;
+
+	var patente = document.getElementById("patente").value;
+	
+
+	if(expregNombre.test(nombre)){
+		alert("El nombre es correcto");
+	
+	} else {
+		alert("El nombre es incorrecto");
+	}
+	if(expregRut.test(rut)){
+		alert("El rut es correcto");
+		
+	}else {
+		alert("El rut es incorrecto");
+	}
+	if(patente == ""){
+		alert("Debes ingresar una patente");
+		return;
+	}
+}
+</script>
+</head>
+
+
+<body>
+<h1>Formulario</h1>
+<form id = "Formulario" action= "" method="get">
+
+<p>
+Nombre: <input type="text" name="nombre" id="nombre" />
+<br />
+
+Rut: <input type="text" name="rut" id="rut" />
+<br />
+
+Patente: <input type="text" name="patente" id="patente" />
+<br / >
+
+<input type="button" value="Aceptar" onclick="aceptar()" />
+
+</p>
+</form>
+</body>
+
+</html>
