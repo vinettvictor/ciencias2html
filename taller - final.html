@@ -32,12 +32,12 @@ function aceptar() {
 		alert("Debes ingresar un rut");
 		return;
 	}else{
-		if(rut.search(".") == -1 && rut.search("-") == -1){		
+		if(!rut.includes(".") && !rut.includes("-")){			
 			if(rut.length == 9){
 				rut = rut.substring(0,2)+"."+rut.substring(2,5)+"."+rut.substring(5,8)+"-"+rut.charAt(8);
 			}else if(rut.length == 8){
 				rut = rut.charAt(0)+"."+rut.substring(1,4)+"."+rut.substring(4,7)+"-"+rut.charAt(7);
-			}	   
+			}			
 		}
 	
 		if(expregRut.test(rut)){
