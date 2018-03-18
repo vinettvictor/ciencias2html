@@ -15,9 +15,12 @@ function aceptar() {
 	var expregNombre = /^[A-Z]{1}[a-z]*$/;
 
 	var rut     = document.getElementById("rut").value;
-	var expregRut = /^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-(k|[0-9]{1})$/;
+	var expregRut = /^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-(k|[0-9]{1})$/; 
 
 	var patente = document.getElementById("patente").value;
+	var expregPatente = /^[A-aZ-z]{4}[0-9]{2}/;
+	
+	
 	
 
 	if(expregNombre.test(nombre)){
@@ -28,15 +31,22 @@ function aceptar() {
 	}
 	if(expregRut.test(rut)){
 		alert("El rut es correcto");
-		
+	
 	}else {
 		alert("El rut es incorrecto");
+		
 	}
 	if(patente == ""){
 		alert("Debes ingresar una patente");
-		return;
+		return patente;
+	}else {
+		alert("La patente es correcta");
+		patente = patente.toUpperCase();
+		alert(patente);
 	}
 }
+
+
 </script>
 </head>
 
@@ -46,13 +56,13 @@ function aceptar() {
 <form id = "Formulario" action= "" method="get">
 
 <p>
-Nombre: <input type="text" name="nombre" id="nombre" />
+Nombre:   <input type="text"  name="nombre" id="nombre" />
 <br />
 
-Rut: <input type="text" name="rut" id="rut" />
+Rut:   	  <input type="text"  name="rut" id="rut" />
 <br />
 
-Patente: <input type="text" name="patente" id="patente" />
+Patente:  <input type="text"  name="patente" id="patente"  />
 <br / >
 
 <input type="button" value="Aceptar" onclick="aceptar()" />
