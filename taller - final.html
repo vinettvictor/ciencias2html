@@ -32,7 +32,7 @@ function aceptar() {
 		alert("Debes ingresar un rut");
 		return;
 	}else{
-		if(rut.search(".") != -1 && !rut.search("-") != -1){		
+		if(rut.search(".") == -1 && rut.search("-") == -1){		
 			if(rut.length == 9){
 				rut = rut.substring(0,2)+"."+rut.substring(2,5)+"."+rut.substring(5,8)+"-"+rut.charAt(8);
 			}else if(rut.length == 8){
