@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+
+<title>Formulario</title>
+
+<script type="text/javascript">
+function aceptar() {
+	
+	var nombre  = document.getElementById("nombre").value;
+	var expregNombre = /^[A-Z]{1}[a-z]*$/;
+	var rut     = document.getElementById("rut").value;
+	var expregRut = /^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-(k|[0-9]{1})$/; 
+	var patente = document.getElementById("patente").value;
+	var expregPatente = /^[A-Z]{4}[0-9]{2}$/;
+	
+	
+	if(nombre == ""){
+		alert("Debes ingresar un nombre");
+		return;
+	}else{
+		if(expregNombre.test(nombre)){
+			alert("El nombre es correcto");	
+		} else {
+			alert("El nombre es incorrecto");
+			return;
+		}
+	}
+	
+	if(rut == ""){
+		alert("Debes ingresar un rut");
+		return;
+	}else{
+		if(rut.search(".") != -1 && !rut.search("-") != -1){		
+			if(rut.length == 9){
+				rut = rut.substring(0,2)+"."+rut.substring(2,5)+"."+rut.substring(5,8)+"-"+rut.charAt(8);
+			}else if(rut.length == 8){
+				rut = rut.charAt(0)+"."+rut.substring(1,4)+"."+rut.substring(4,7)+"-"+rut.charAt(7);
+			}	   
+			alert(rut);
+		}
+	
+		if(expregRut.test(rut)){
+			alert("El rut es correcto");	
+		}else {
+			alert("El rut es incorrecto");	
+			return;			
+		}
+	}
+	
+	if(patente == ""){
+		alert("Debes ingresar una patente");
+		return;
+	}else {
+		patente = patente.toUpperCase();
+		if(expregPatente.test(patente)){
+			alert("La patente es correcta");	
+		}else {
+			alert("La patente es incorrecta");	
+			return;			
+		}
+	}
+}
+</script>
+</head>
+
+
+<body>
+<h1>Formulario</h1>
+<form id = "Formulario" action= "" method="get">
+
+<p>
+Nombre:   <input type="text"  name="nombre" id="nombre" />
+<br />
+
+Rut:   	  <input type="text"  name="rut" id="rut" />
+<br />
+
+Patente:  <input type="text"  name="patente" id="patente"  />
+<br / >
+
+<input type="button" value="Aceptar" onclick="aceptar()" />
+
+</p>
+</form>
+</body>
+
+</html>
